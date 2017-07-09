@@ -1,0 +1,620 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+/* CSS Document */
+
+/***************************************
+****************************************
+Eric Meyer’s “Reset CSS"
+  v2.0 | 20110126
+  http://meyerweb.com/eric/tools/css/reset/
+  License: none (public domain)
+****************************************
+***************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	color:#333333;
+	text-decoration:none;
+}
+a:hover{
+	color:#000 !important;
+
+}
+input[type="text"]:focus{
+	outline:none;
+}
+/***************************************
+****************************************
+typo
+****************************************
+***************************************/
+p,a,div,span,table{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:14px;
+	line-height:16px;
+	color:#545454;
+}
+
+
+/***************************************
+****************************************
+FRISK CSS
+****************************************
+***************************************/
+.header{
+	position:fixed;
+	z-index:1001;
+	width:100%;
+	background-color:#fff;
+}
+.headerWrap{
+	display:flex;
+	justify-content:space-between;
+	padding:15px 30px;
+	border-bottom:1px solid #999999;
+}
+.leftheader, .logo, .rightheader{display:flex;}
+.iconHamburger, .iconSearch, .iconFrisk, .iconMypage, .iconSignout{padding:0px 10px;}
+.beforelogin{margin-right:173px;}
+.areyoumember, .registerlogin{padding:0px 5px;line-height:30px;}
+.areyoumember{font-weight:500;}
+.registerlogin{font-weight:800;}
+.iconRegisterlogin{display:none;}
+/*contents*/
+.contents{
+	padding:70px 0px;
+	background-color:#f9f9f9;
+}
+.wrap { margin:0 auto; }
+.single-item-wrap{
+	width:437px;
+	height:auto;
+	margin:13px;
+	box-sizing:border-box;
+}
+.list-txt{
+	padding:15px 20px;
+	box-sizing:border-box;
+	background-color:#ffffff;
+}
+.listTitle{
+font-size:16px;
+	font-weight:400;
+	color:#333333;
+	margin-bottom:5px;
+}
+.listDescription{
+	font-weight:300;
+}
+/*footer*/
+.footer{
+	width:100%;
+	padding:20px 0px;
+	text-align:center;
+	background-color:#333333;
+}
+.footer p{color:#dedede;}
+
+/*register/login light-box*/
+.registerloginWrap{
+	position:fixed;
+	display:flex;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:1001;
+	background-color:rgba(0,0,0,0.8);
+}
+.box-content-rl{
+	align-self:center;
+	width:600px;
+	height:auto;
+	margin:0 auto;
+	background-color:#ffffff;
+	padding:50px 40px;
+}
+.bt-rlbox-close{
+	position:absolute;
+	top:0;
+	right:0;
+}
+.box-content h1{
+	text-align:center;
+	margin-bottom:30px;
+	font-size:20px;
+	font-weight:700;
+	color:#000;
+}
+.loginWrap{
+	border-bottom:1px solid #333333;
+	padding-bottom:10px;
+	margin-bottom:20px;
+}
+.login-field-wrap{
+	display:flex;
+	margin-bottom:15px;
+}
+.ib-wrap{
+	width:83%;
+	margin-right:2%;
+}
+.bt-login{width:15%;}
+.ib-wrap input{
+	width:100%;
+	height:30px;
+	padding:0px 10px;
+	border:0;
+	border-radius:3px;
+	background-color:#f2f2f2;
+	box-sizing:border-box;
+}
+.ib-wrap input:first-child{margin-bottom:10px;}
+.bt-login button{
+	width:100%;
+	height:100%;
+	border:0;
+	cursor:pointer;
+	background-color:#333333;
+}
+.bt-login button div{color:#ffffff;}
+.etc-login{
+	display:flex;
+	justify-content:space-between;
+}
+.etc-login label, .etc-login a, .etc-login span{color:#c1c1c1;font-size:12px;}
+.registertxtWrap{
+	display:flex;
+	justify-content:space-between;
+}
+.registertxtWrap p{
+	font-size:17px;
+	line-height:38px;
+}
+.bt-join{
+	border:1px solid #000;
+	padding:10px 30px;
+	font-size:17px;
+	font-weight:500px;
+	color:#000000;
+}
+.bt-join:hover{background-color:rgba(0,0,0,0.05);}
+/*search*/
+.searchWrap{top:0;bottom:0;left:0;right:0;z-index:1002;background-color:rgba(0,0,0,0.8);}
+.searchconWrap{padding:0px 0px 0px 30px;background-color:#fff;}
+.icon-search{padding-right:15px;}
+.icon-search img{padding:15px 0px;}
+.area-search{width:100%;height:60px;border:0px;}
+.area-search input{width:100%;height:58px;border:0px;}
+/*drawer*/
+.drawer{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color:rgba(0,0,0,0.8);
+	z-index:1003;
+}
+.drawerWrap{
+	width:300px;
+	height:100%;
+	background-color:#fff;
+}
+.iconHamburgerWrap{
+	padding:15px 30px;
+}
+.drawer-single-menu{
+	width:100%;
+	height:50px;
+	padding:0px 40px;
+	box-sizing:border-box;
+	line-height:50px;
+	font-size:16px;
+	border-top:1px solid #f5f5f5;
+}
+.drawer-single-menu:hover{
+	background-color:rgba(0,0,0,0.01);
+	color:#000;
+}
+.drawer-single-menu:last-child{
+	border-bottom:1px solid #f5f5f5;
+}
+.drawer-single-menu-current{
+	background-color:rgba(0,0,0,0.1);
+	color:#000;
+	font-weight:500;
+}
+/*hover elements*/
+.img-wrap{position:relative;}
+.hover-element-top{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+.hover-element-bottom{
+	position:absolute;
+	right:10px;
+	bottom:10px;
+}
+.iconLike{margin-right:5px;}
+.iconLike,.iconShare,.iconAddcart{opacity:0;}
+
+/*mypage*/
+.dark{
+	background-color:#263046;
+}
+.darkcontents{
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e1932+10,0e2a4a+100 */
+	background: rgb(14,25,50); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(14,25,50,1) 10%, rgba(14,42,74,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(14,25,50,1) 10%,rgba(14,42,74,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(14,25,50,1) 10%,rgba(14,42,74,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e1932', endColorstr='#0e2a4a',GradientType=0 ); /* IE6-9 */
+}
+.helloUser{
+	width:300px;
+	height:300px;
+	background-image:url('/img/img_hellouser.png');
+	background-repeat:no-repeat;
+	background-size:cover;
+	margin:0 auto;
+	margin-top:150px;
+}
+.helloUser-align{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	text-align:center;
+}
+.mypage-hello{
+	font-family: 'Pacifico', cursive;
+	color:#000000;
+	font-size:50px;
+	line-height:60px;
+}
+.mypage-userid{
+	font-family: 'Patrick Hand', cursive;
+	color:#000000;
+	font-size:25px;
+	line-height:30px
+}
+.mypage-menu-wrap{
+	width:800px;
+	margin:0 auto;
+	margin-top:80px;
+}
+.mypage-myorder,.mypage-myauthentication,.mypage-mylikes{
+	width:33.33%;
+	float:left;
+}
+.mypage-myorder a,.mypage-myauthentication a,.mypage-mylikes a{
+	display:block;
+	margin:0px 20px;
+	padding:10px;
+	border:2px solid #fff;
+	border-radius:19px;
+	color:#fff;
+	text-align:center;
+}
+.mypage-myorder a:hover, .mypage-myauthentication a:hover, .mypage-mylikes a:hover{
+	color:#fff !important;
+	background-color:rgba(255,255,255,0.2);
+}
+.mypage-myorder-count,.mypage-myauthentication-count,.mypage-mylikes-count{
+	text-align:center;
+	margin-bottom:20px;
+	font-size:80px;
+	line-height:80px;
+	color:#fff;
+}
+.clearfix{clear:both;}
+.mysetting{
+	position:absolute;
+	right:40px;
+	bottom:90px;
+}
+.darkfooter{
+	position:absolute;
+	left:0;
+	bottom:0;
+	border-top:1px solid #55868e;
+	background-color:rgba(0,0,0,0);
+}
+.darkfooter p{color:#55868e;}
+/*my order*/
+.darkconheader{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e1932+10,0e1f3b+100 */
+	background: rgb(14,25,50); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(14,25,50,1) 10%, rgba(14,31,59,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(14,25,50,1) 10%,rgba(14,31,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(14,25,50,1) 10%,rgba(14,31,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e1932', endColorstr='#0e1f3b',GradientType=0 ); /* IE6-9 */
+}
+.darkconheader .helloUser{
+	width:180px;
+	height:180px;
+	margin-top:101px;
+}
+.darkconheader .mypage-hello{
+	font-size:30px;
+	line-height:35px;
+}
+.darkconheader .mypage-userid{
+	font-size:20px;
+	line-height:25px;
+}
+.darkconheader .mypage-menu-wrap{
+	width:670px;
+	margin-top:30px;
+	margin-bottom:40px;
+}
+.darkconheader .mypage-myorder-count, .darkconheader .mypage-myauthentication-count, .darkconheader .mypage-mylikes-count{
+	display:none;
+}
+.current-mypagesection a{background-color:rgba(255,255,255,0.4);}
+.darkconheader .mysetting{
+	bottom:40px;
+}
+.my-table-wrap{
+	width:960px;
+	margin:0 auto;
+	padding-top:320px;
+}
+.my-table{
+	width:100%;
+	height:auto;
+	margin-top:60px;
+}
+table{width:100%;}
+thead{
+	background-color:#e6e6e6;
+	border-top:1px solid #cccccc;
+}
+td,th{
+	padding:10px;
+	text-align:center;
+	border-right:1px solid #cccccc;
+}
+td:last-child,th:last-child{
+	border-right:0px;
+}
+tr{border-bottom:1px solid #cccccc;}
+th{font-weight:500;}
+.btn_checkreport,.btn_geAuthen{
+	padding:2px 5px;
+	background-color:#47b5d8;
+	border-radius:5px;
+	font-size:12px;
+	font-weight:200;
+	color:#ffffff;
+}
+.btn_checkreport:hover,.btn_geAuthen:hover{
+	color:#ffffff !important;
+	background-color:#3794e8;
+}
+/*like*/
+.mylikesWrap{margin-top:367px}
+.iconLiked{margin-right:5px;}
+
+/*edit personal info*/
+button:focus,textarea:focus{outline:none;}
+button{cursor:pointer;}
+.editPersonalInfoWrap{
+	position:fixed;
+	display:flex;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:1001;
+	background-color:rgba(0,0,0,0.8);
+}
+.editPersonalInfoWrap p{text-align:center;margin-bottom:15px;}
+.check-pw-wrap{
+	display:flex;
+	width:335px;
+	height:35px;
+	margin:0 auto;
+}
+.check-pw-wrap input{
+	width:68%;
+	margin-right:2%;
+	padding:0px 10px;
+	background-color:#f2f2f2;
+	border:0px;
+	border-radius:3px;
+	text-align:center;
+}
+.check-pw-wrap button{
+	width:30%;
+	background-color:#333333;
+	border:0px;
+}
+.btn-check-pw div{color:#fff;}
+.input-info-wrap{
+	padding:20px;
+	border-top:1px solid #333333;
+	border-bottom:1px solid #333333;
+}
+.input-info-wrap div{
+	display:flex;
+	margin-bottom:7px;
+}
+.input-info-wrap lable{
+	width:30%;
+	height:auto;
+	font-weight:500;
+	line-height:25px;
+}
+.input-info-wrap input{
+	width:70%;
+	height:25px;
+	padding:0px 10px;
+	border:0px;
+	border-radius:3px;
+	background-color:#f2f2f2;
+	box-sizing:border-box;
+}
+.btn-box-wrap{
+	display:flex;
+	padding:20px;
+}
+.btn-box-wrap button{
+	width:48%;
+	height:auto;
+	margin:1%;
+	padding:10px 30px;
+}
+.btn-box-wrap button:hover{background-color:rgba(0,0,0,0.3);}
+.btn-withdraw{border:1px solid #676767;background-color:initial;}
+.btn-save{border:1px solid #676767;background-color:rgba(0,0,0,0.15);}
+.btn-withdraw div,.btn-save div{color:#000000;font-weight:500;}
+.feedback{width:100%;display:flex;}
+.feedback p{
+	align-self:center;
+	display:flex;
+	margin:0 auto;
+	font-size:20px;
+	line-height:30px;
+	font-weight:600;
+	color:#fff;
+}
+.feedback p:before{
+	content:url('/img/icon_check.png');
+	margin-right:10px;
+	width:30px;
+	height:30px;
+}
+.input-withdraw-reason-wrap{
+	padding:20px;
+	border-top:1px solid #333333;
+	border-bottom:1px solid #333333;
+	box-sizing:border-box;
+}
+#withdrawreason{
+	width:100%;
+	margin-top:10px;
+	background-color:#f2f2f2;
+	border:0px;
+}
+.btn-box-wrap p{
+	text-align:left;
+	margin-bottom:0;
+	padding:10px 0px;
+	font-size:16px;
+	font-weight:500;
+	line-height:20px;
+	box-sizing:border-box;
+}
+.submit-register-wrap{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	box-sizing:border-box;
+}
+.btn-submit-register{width:100%;margin:0 auto;border:1px solid #676767;background-color:rgba(0,0,0,0.15);}
+/***************************************
+****************************************
+responsive CSS
+****************************************
+***************************************/
+@media only screen and (max-width:1500px){
+}
+@media only screen and (max-width:1200px){
+	.my-table-wrap{width:90%;}
+}
+@media only screen and (max-width:960px){
+}
+@media only screen and (max-width:800px){
+	.areyoumember{display:none;}
+	.box-content-rl{width:80%;}
+	.beforelogin{margin-right:36px;}
+	.darkconheader .mypage-menu-wrap{width:100%;}
+	.mypage-myorder, .mypage-myauthentication, .mypage-mylikes{width:100%;margin-bottom:10px;}
+	.darkconheader .mysetting{right:25px;bottom:220px;}
+	.my-table-wrap{padding-top:430px;}
+	.mylikesWrap{margin-top:480px;}
+	.mypage-menu-wrap{width:100%;}
+	.mypage-myorder-count, .mypage-myauthentication-count, .mypage-mylikes-count{display:none;}
+}
+@media only screen and (max-width:767px){
+	.registerlogin{display:none;}
+	.iconRegisterlogin{display:block;margin-left:60px;padding-right:10px;}
+	.beforelogin{margin-right:0px;}
+	.btn_checkreport, .btn_geAuthen{display:block;}
+}
+@media only screen and (max-width:479px){
+.single-item-wrap{width:350px;}
+.single-item-wrap img{width:100%;}
+.headerWrap{padding:15px 15px;}
+.ib-wrap{width:73%;}
+.bt-login{width:25%;}
+.registertxtWrap p{font-size:14px;}
+.bt-join{font-size:14px;padding:10px 20px;}
+
+}
+@media only screen and (max-width:400px){
+.single-item-wrap{width:250px;}
+.headerWrap{padding:15px 0px;}
+.iconRegisterlogin{margin-left:30px;}
+.check-pw-wrap{width:90%;}
+}
+@media only screen and (max-width:370px){
+.bt-join{padding:10px 10px;}
+.etc-login{display:block;text-align:center;}
+
+}
