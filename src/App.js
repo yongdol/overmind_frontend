@@ -129,7 +129,7 @@ class App extends Component {
                         <Route exact path="/overmind/register" component={OMRegister} />
                     </Route>
 
-                    <Route path="/overmind/portco/report" component={OMPcPage}>
+                    <Route path="/overmind/report/:fid" component={OMPcPage}>
                         <Route exact path="/overmind/sidebar" component={Sidebar} />
                         <Route exact path="/overmind/search" component={Search} />
                         <Route exact path="/overmind/login" component={OMLogin} />

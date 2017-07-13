@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import PlusPortfolio from './Portfolio/PlusPortfolio';
 import MinusPortfolio from './Portfolio/MinusPortfolio';
 import $ from 'jquery';
@@ -16,15 +15,11 @@ class Portfolios extends React.Component {
     componentWillMount() {
         const values = this.serviceList();
         this.setState({data: values.data, e_msg: values.e_msg.message});
-        console.log('data', values.data);
-        console.log('errormsg', values.e_msg);
     }
 
     serviceList() {
         let result = null;
         let token = 'JWT' + sessionStorage.getItem('access_token');
-        // console.log(token);
-        // console.log(user_id);
 
         $.ajax({
             url: "http://localhost:5505/api/overmind/vc/pflist",
@@ -38,10 +33,9 @@ class Portfolios extends React.Component {
             console.log('res', res);
         });
   		return result;
-
   	}
 
-    renderPortfolios(dfn, dstat, drunway, dabm, dcr) {
+    renderPortfolios(dfn, dstat, drunway, dabm, dcr, dfid) {
         const plmidrunway = ((drunway > 0) ? true : false);
         return ( plmidrunway ?
                     <PlusPortfolio
@@ -50,6 +44,7 @@ class Portfolios extends React.Component {
                         drunway={drunway}
                         dabm={dabm}
                         dcr={dcr}
+                        dfid={dfid}
                     />
                 :  <MinusPortfolio
                         dfn={dfn}
@@ -57,6 +52,7 @@ class Portfolios extends React.Component {
                         drunway={drunway}
                         dabm={dabm}
                         dcr={dcr}
+                        dfid={dfid}
                     />
 
         )
@@ -79,7 +75,8 @@ class Portfolios extends React.Component {
                                         item.status,
                                         item.runway.toString().slice(0, 4),
                                         this.numberWithCommas(item.avg_burn_mon),
-                                        this.numberWithCommas(item.cash_remaining))
+                                        this.numberWithCommas(item.cash_remaining),
+                                        item.firm_id)
                                 }
                             )
                         }

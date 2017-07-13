@@ -169,16 +169,13 @@ class OMMainPage extends Component {
         return (
             <div>
                 <OMHeader />
-                <OMMain />
+                <OMMain fid={this.props.params.fid}/>
                 <Footer />
                 {this.props.children}
             </div>
         );
     }
 }
-
-
-
 
 class OMVcPage extends Component {
     render() {
@@ -198,16 +195,13 @@ class OMPcPage extends Component {
         return (
             <div>
                 <OMHeader />
-                <OMReport />
+                <OMReport fid={this.props.params.fid}/>
                 <Footer />
                 {this.props.children}
             </div>
         );
     }
 }
-
-
-
 
 
 export {

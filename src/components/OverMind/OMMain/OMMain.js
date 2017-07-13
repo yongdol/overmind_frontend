@@ -6,8 +6,7 @@ class OMMain extends Component {
     render() {
         const isLoggedIn = (sessionStorage.getItem('access_token') ? true : false);
         const member_type = sessionStorage.getItem('member_type');
-
-        console.log("member_type", member_type);
+        const firm_id = sessionStorage.getItem('firm_id');
         const vclogin = (
             <div className="contents">
                 <h1> {member_type} login success!!</h1>
@@ -18,10 +17,9 @@ class OMMain extends Component {
         const portcologin = (
             <div className="contents">
                 <h1> {member_type} login success!!</h1>
-                <Link to="portco/report">대시보드가기</Link>
+                <Link to={"report/" + firm_id}>대시보드가기</Link>
             </div>
         );
-
 
         const notlogin = (
             <div className="contents">
@@ -31,7 +29,6 @@ class OMMain extends Component {
 
         return (
             isLoggedIn ? (member_type==='vc' ? vclogin : portcologin) : notlogin);
-
     }
 }
 

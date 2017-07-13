@@ -5,6 +5,7 @@ import toastr from 'toastr';
 class OMLogin extends Component {
 
     omlogin(userid, passwd) {
+
         let result = null;
         const jsonData = {"id": userid, "pw": passwd};
         return $.ajax({
@@ -12,21 +13,18 @@ class OMLogin extends Component {
             method: "post",
             data: jsonData,
         }).done((res) => {
-            toastr.options = {
-                    "timeOut": "2000"
-                };
             if (res.e_msg.status === 200) {
                 sessionStorage.setItem('id', userid);
                 sessionStorage.setItem('access_token', res.access_token);
                 sessionStorage.setItem('refresh_token', res.refresh_token);
                 sessionStorage.setItem('member_type', res.member_type);
+                sessionStorage.setItem('firm_id', res.firm_id);
                 location.href = "#" + hashHistory.getCurrentLocation().pathname.replace("/login", "");
-
                 toastr.success("Login Success");
+
             } else {
                 result = res.e_msg.message;
                 toastr.error(result);
-                console.error("res", result);
             }
         });
     }
