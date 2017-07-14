@@ -9,9 +9,9 @@ class OMLogin extends Component {
         let result = null;
         const jsonData = {"id": userid, "pw": passwd};
         return $.ajax({
-            url: "http://localhost:5505/api/overmind/signin",
+            url: "https://13.124.106.247/overmind/signin",
             method: "post",
-            data: jsonData,
+            data: jsonData
         }).done((res) => {
             if (res.e_msg.status === 200) {
                 sessionStorage.setItem('id', userid);

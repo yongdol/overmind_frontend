@@ -20,7 +20,7 @@ class OMReport extends Component {
         let result = null;
         let token = 'JWT' + sessionStorage.getItem('access_token');
         $.ajax({
-            url: "http://localhost:5505/api/overmind/report",
+            url: "https://13.124.106.247/overmind/report",
             method: "get",
             headers: {
                 Authorization: token
@@ -111,8 +111,6 @@ class OMReport extends Component {
     render() {
         if (this.state.data) {
             let data = eval('(' + this.state.data[0]['big_json'] + ')');
-            // let data = ('(' + this.state.data[0]['big_json'] + ')');
-
 
             return (
                 <div className="contents">
@@ -121,15 +119,12 @@ class OMReport extends Component {
                     <h2 className="report-h2">{data.title}</h2>
                     <div>
                         {
-                            data.body.map((obj) =>
-                                (this.printmap(obj)))
+                            data.body.map((obj) => (this.printmap(obj)))
                         }
                     </div>
                 </div>
-
             );
         }
-
         else {
             return (
                 <div className="contents">
@@ -138,5 +133,6 @@ class OMReport extends Component {
         }
     }
 }
+
 
 export default OMReport;
