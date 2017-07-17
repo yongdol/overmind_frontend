@@ -17,7 +17,12 @@ class OMMain extends Component {
         const portcologin = (
             <div className="contents">
                 <h1> {member_type} login success!!</h1>
-                <Link to={"report/" + firm_id}>대시보드가기</Link>
+                <p>
+                    <Link to={"report/" + firm_id}>대시보드가기</Link>
+                </p>
+                <p>
+                    <Link to={"account/" + firm_id}>자산현황관리</Link>
+                </p>
             </div>
         );
 

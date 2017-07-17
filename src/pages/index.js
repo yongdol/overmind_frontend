@@ -5,7 +5,7 @@ import {
     Step1, Step2, Step3, Step4, Report,
 
     /* OverMind */
-    OMHeader, Portfolios, OMMain, OMReport
+    OMHeader, Portfolios, OMMain, OMReport, OMAccount, OMAccountManage
 } from '../components';
 
 
@@ -204,10 +204,39 @@ class OMPcPage extends Component {
 }
 
 
+class OMAccountPage extends Component {
+    render() {
+        return (
+            <div>
+                <OMHeader />
+                <OMAccount fid={this.props.params.fid}/>
+                <Footer />
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+class OMAccountManagePage extends Component {
+    render() {
+        return (
+            <div>
+                <OMHeader />
+                <OMAccountManage fid={this.props.params.fid}/>
+                <Footer />
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+
+
+
 export {
     FrontPage, MyPage, MyOrderPage, MyLikesPage, MyAuthPage, ServiceDetailPage,
     Step1Page, Step2Page, Step3Page, Step4Page, ReportPage,
 
     /* OverMind */
-    OMMainPage, OMVcPage, OMPcPage
+    OMMainPage, OMVcPage, OMPcPage, OMAccountPage, OMAccountManagePage
 };

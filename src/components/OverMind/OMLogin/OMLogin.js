@@ -9,7 +9,8 @@ class OMLogin extends Component {
         let result = null;
         const jsonData = {"id": userid, "pw": passwd};
         return $.ajax({
-            url: "https://13.124.106.247/overmind/signin",
+            // url: "https://13.124.106.247/overmind/signin",
+            url: "http://localhost:5505/api/overmind/signin",
             method: "post",
             data: jsonData
         }).done((res) => {

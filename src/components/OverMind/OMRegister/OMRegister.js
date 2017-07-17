@@ -16,7 +16,8 @@ class OMRegister extends Component {
 
 
         return $.ajax({
-            url: "https://13.124.106.247/overmind/signup",
+            // url: "https://13.124.106.247/overmind/signup",
+            url: "http://localhost:5505/api/overmind/signup",
             method: "post",
             data: jsonData
         }).done((res) => {

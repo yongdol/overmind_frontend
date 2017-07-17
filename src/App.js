@@ -16,7 +16,7 @@ import {
     ServiceDetailPage, Step1Page, Step2Page, Step3Page, Step4Page,
     ReportPage,
     /* OverMind */
-    OMMainPage, OMVcPage, OMPcPage,
+    OMMainPage, OMVcPage, OMPcPage, OMAccountPage, OMAccountManagePage
 } from './pages';
 
 // nested route 구조를 사용하기 위한 컴포넌트
@@ -135,6 +135,22 @@ class App extends Component {
                         <Route exact path="/overmind/login" component={OMLogin} />
                         <Route exact path="/overmind/register" component={OMRegister} />
                     </Route>
+
+                    <Route path="/overmind/account/:fid" component={OMAccountPage}>
+                        <Route exact path="/overmind/sidebar" component={Sidebar} />
+                        <Route exact path="/overmind/search" component={Search} />
+                        <Route exact path="/overmind/login" component={OMLogin} />
+                        <Route exact path="/overmind/register" component={OMRegister} />
+                    </Route>
+
+                    <Route path="/overmind/account/manage/:fid" component={OMAccountManagePage}>
+                        <Route exact path="/overmind/sidebar" component={Sidebar} />
+                        <Route exact path="/overmind/search" component={Search} />
+                        <Route exact path="/overmind/login" component={OMLogin} />
+                        <Route exact path="/overmind/register" component={OMRegister} />
+                    </Route>
+
+
 
 
 

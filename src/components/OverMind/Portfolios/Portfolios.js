@@ -22,7 +22,8 @@ class Portfolios extends React.Component {
         let token = 'JWT' + sessionStorage.getItem('access_token');
 
         $.ajax({
-            url: "https://13.124.106.247/overmind/vc/pflist",
+            // url: "https://13.124.106.247/overmind/vc/pflist",
+            url: "http://localhost:5505/api/overmind/vc/pflist",
             method: "get",
             headers: {
                 Authorization: token

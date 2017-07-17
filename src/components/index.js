@@ -39,6 +39,8 @@ import OMRegister from './OverMind/OMRegister/OMRegister';
 
 import Portfolios from './OverMind/Portfolios/Portfolios';
 import OMReport from './OverMind/OMReport/OMReport';
+import OMAccount from './OverMind/OMAccount/OMAccount';
+import OMAccountManage from './OverMind/OMAccountManage/OMAccountManage';
 
 export {
     Contents, Header, Footer, Register, Login, DarkHeader, DarkFooter, DarkContents,
@@ -47,5 +49,5 @@ export {
     ServiceDetail, Step1, Step2, Step3, Step4, Report,
 
     /* OverMind */
-    OMMain, OMHeader, OMLogin, OMRegister, Portfolios, OMReport
+    OMMain, OMHeader, OMLogin, OMRegister, Portfolios, OMReport, OMAccount, OMAccountManage
 };

@@ -11,6 +11,7 @@
     "c3-react": "^0.1.13",
     "cookies": "^0.7.0",
     "jquery": "^3.1.1",
+    "jquery-form": "^4.2.1",
     "markdown-it": "^8.3.1",
     "markdown-it-jsx": "^1.1.0",
     "markdown-react-js": "^0.3.0",
