@@ -7,13 +7,15 @@ class OMAccountManage extends Component {
 
     uploadFile() {
         var formData = new FormData();
-        var file = document.getElementById('file').files[0];
-        var qurystringfile = jQuery.param(file);
+        // var file = document.getElementById('file').files[0];
+        var file = document.querySelector('input[type=file]').files[0];
         console.log("file",file);
-        console.log("file",typeof file);
-
+        // console.log("file",typeof file);
         formData.append("file", file);
-        console.log("data",typeof formData);
+        console.log("data",formData);
+        // console.log("data",typeof formData);
+
+
         return axios.post('http://localhost:5505/api/overmind/fileupload', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
