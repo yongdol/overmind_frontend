@@ -3,38 +3,51 @@ import C3Chart from 'react-c3js';
 import {mdReact} from 'markdown-react-js';
 import 'c3/c3.css';
 import * as $ from "jquery";
-
+import axios from "axios";
 
 class OMReport extends Component {
 
-    getInitialState() {
-        return ({data: null})
+    constructor(props) {
+    super(props);
+        this.state = {
+            data:null,
+        };
     }
 
     componentWillMount() {
-        const values = this.getReport();
-        this.setState({data: values.data, e_msg: values.e_msg.message});
+        this.getReport().then((res) => this.setState({data:res.data.data, e_msg:res.e_msg}))
+        // const values = this.getReport();
+        // this.setState({data: values.data, e_msg: values.e_msg.message});
     }
 
     getReport() {
-        let result = null;
+        // let result = null;
         let token = 'JWT' + sessionStorage.getItem('access_token');
-        $.ajax({
-            // url: "https://13.124.106.247/overmind/report",
-            url: "http://localhost:5505/api/overmind/report",
-            method: "get",
-            headers: {
-                Authorization: token
-            },
-            data: {
-                pf_id: this.props.fid
-            },
-            async: false,
-        }).done((res) => {
-            result = res;
+        // let data = this.props.fid;
+        // $.ajax({
+        //     url: "https://13.124.106.247/overmind/report",
+            // url: "http://localhost:5505/api/overmind/report",
+            // method: "get",
+            // headers: {
+            //     Authorization: token
+            // },
+            // data: {
+            //     pf_id: this.props.fid
+            // },
+            // async: false,
+        // }).done((res) => {
+        //     result = res;
 
+        // });
+        // return result;
+        return axios.get("http://localhost:5505/api/overmind/report", {
+                headers: {
+                    Authorization: token
+                },
+                params: {
+                    pf_id: this.props.fid
+                }
         });
-        return result;
     }
 
     renderCol(item, type) {
@@ -110,8 +123,10 @@ class OMReport extends Component {
     }
 
     render() {
-        if (this.state.data) {
-            let data = eval('(' + this.state.data[0]['big_json'] + ')');
+        // if (this.state.data) {
+        if (this.state) {
+        //     let data = eval('(' + this.state.data[0]['big_json'] + ')');
+            let data = eval('(' + this.state.data.big_json + ')');
 
             return (
                 <div className="contents">
