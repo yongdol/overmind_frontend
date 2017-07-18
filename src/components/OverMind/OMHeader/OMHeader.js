@@ -55,7 +55,7 @@ class OMHeader extends Component {
                         </div>
                     </div>
                     <div className="logo">
-                        <Link to="/overmind/vf/pflist">
+                        <Link to="/overmind/vc/pflist">
                             <h1 className="headerlogo">
                                 Over Mind
                             </h1>
