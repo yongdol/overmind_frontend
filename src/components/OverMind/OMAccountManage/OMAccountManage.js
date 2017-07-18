@@ -1,24 +1,25 @@
 import React, {Component} from 'react';
-import $ from "jquery";
 import axios from 'axios';
-import * as jQuery from "react/lib/ReactDOMFactories";
+
 
 class OMAccountManage extends Component {
 
     uploadFile() {
-        var formData = new FormData();
-        // var file = document.getElementById('file').files[0];
-        var file = document.querySelector('input[type=file]').files[0];
-        console.log("file",file);
+        const token = sessionStorage.getItem('access_token');
+        let formData = new FormData();
+        let file = document.getElementById('file').files;
+        // var file = document.querySelector('input[type=file]').files;
+        for (var i=0; i<file.length; i++) {
+            console.log("file",file[i]);
+            formData.append("file", file[i]);
+        }
         // console.log("file",typeof file);
-        formData.append("file", file);
         console.log("data",formData);
-        // console.log("data",typeof formData);
-
 
         return axios.post('http://localhost:5505/api/overmind/fileupload', formData, {
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data',
+                'Authorization': token
             }
         })
     }
@@ -27,7 +28,7 @@ class OMAccountManage extends Component {
         return (
             <div className="contents">
                <form ref="uploadForm" className="uploader">
-                   <input id="file" type="file" name="file" className="upload-file"/>
+                   <input id="file" type="file" name="file" className="upload-file" multiple="multiple"/>
                    <input type="button" id="button" value="Upload" onClick={this.uploadFile} />
                </form>
             </div>
