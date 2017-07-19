@@ -11,7 +11,6 @@ class OMLogin extends Component {
         let result = null;
         const jsonData = {"id": userid, "pw": passwd};
         return $.ajax({
-            // url: "http://localhost:5505/api/overmind/signin",
             url: BACKEND_URL + "/signin",
             method: "post",
             data: jsonData
@@ -24,7 +23,6 @@ class OMLogin extends Component {
                 sessionStorage.setItem('firm_id', res.firm_id);
                 location.href = "#" + hashHistory.getCurrentLocation().pathname.replace("/login", "");
                 toastr.success("Login Success");
-
             } else {
                 result = res.e_msg.message;
                 toastr.error(result);

@@ -2,11 +2,10 @@ import React, {Component} from "react";
 import C3Chart from "react-c3js";
 import {mdReact} from "markdown-react-js";
 import "c3/c3.css";
-import * as $ from "jquery";
 import axios from "axios";
 import BACKEND_URL from "../config";
 
-
+/* eslint no-eval: 0 */
 class OMReport extends Component {
 
     constructor(props) {
@@ -16,32 +15,12 @@ class OMReport extends Component {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getReport().then((res) => this.setState({data:res.data.data, e_msg:res.e_msg}))
-        // const values = this.getReport();
-        // this.setState({data: values.data, e_msg: values.e_msg.message});
     }
 
     getReport() {
-        // let result = null;
         let token = 'JWT' + sessionStorage.getItem('access_token');
-        // let data = this.props.fid;
-        // $.ajax({
-        //     url: "https://13.124.106.247/overmind/report",
-            // url: "http://localhost:5505/api/overmind/report",
-            // method: "get",
-            // headers: {
-            //     Authorization: token
-            // },
-            // data: {
-            //     pf_id: this.props.fid
-            // },
-            // async: false,
-        // }).done((res) => {
-        //     result = res;
-
-        // });
-        // return result;
         return axios.get(BACKEND_URL + "/report", {
                 headers: {
                     Authorization: token
@@ -80,7 +59,7 @@ class OMReport extends Component {
         return answer;
     }
 
-    printmap(obj) {
+    printmap(obj, i) {
         switch (obj.form) {
             case "markdown":
                 return (
@@ -92,7 +71,7 @@ class OMReport extends Component {
 
             case "graph":
                 return (
-                    <div>
+                    <div key={i}>
                         <h2 className="report-h2">{obj.title}</h2>
                         <C3Chart data={obj.data} axis={obj.axis} point={obj.point}/>
                     </div>
@@ -125,11 +104,10 @@ class OMReport extends Component {
     }
 
     render() {
-        // if (this.state.data) {
-        if (this.state) {
-        //     let data = eval('(' + this.state.data[0]['big_json'] + ')');
-            let data = eval('(' + this.state.data.big_json + ')');
-
+        if (this.state.data) {
+            let data = eval('(' + this.state.data[0]['big_json'] + ')');
+            // let data = '(' + this.state.data[0]['big_json'] + ')';
+            // console.log(data)
             return (
                 <div className="contents">
                     <div></div>
@@ -137,7 +115,7 @@ class OMReport extends Component {
                     <h2 className="report-h2">{data.title}</h2>
                     <div>
                         {
-                            data.body.map((obj) => (this.printmap(obj)))
+                            data.body.map((obj,i) => (this.printmap(obj, i)))
                         }
                     </div
                     >

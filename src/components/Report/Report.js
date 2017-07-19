@@ -5,7 +5,7 @@ import { mdReact } from 'markdown-react-js';
 import 'c3/c3.css';
 
 class Report extends Component {
-
+/* eslint no-eval: 0 */
   getInitialState () {
       return ( { data:null } )
   }
