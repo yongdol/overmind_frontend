@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import {Link, hashHistory} from 'react-router';
-import $ from 'jquery';
+import React, {Component} from "react";
+import {Link, hashHistory} from "react-router";
+import $ from "jquery";
+import BACKEND_URL from "../config";
 
 class OMRegister extends Component {
 
@@ -17,7 +18,7 @@ class OMRegister extends Component {
 
         return $.ajax({
             // url: "https://13.124.106.247/overmind/signup",
-            url: "http://localhost:5505/api/overmind/signup",
+            url: BACKEND_URL + "/signup",
             method: "post",
             data: jsonData
         }).done((res) => {

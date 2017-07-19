@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import BACKEND_URL from "../config"
 
 
 class OMAccountManage extends Component {
@@ -16,7 +17,7 @@ class OMAccountManage extends Component {
         // console.log("file",typeof file);
         console.log("data",formData);
 
-        return axios.post('http://localhost:5505/api/overmind/fileupload', formData, {
+        return axios.post(BACKEND_URL + '/fileupload', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': token

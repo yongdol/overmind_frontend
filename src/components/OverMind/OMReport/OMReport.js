@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
-import C3Chart from 'react-c3js';
-import {mdReact} from 'markdown-react-js';
-import 'c3/c3.css';
+import React, {Component} from "react";
+import C3Chart from "react-c3js";
+import {mdReact} from "markdown-react-js";
+import "c3/c3.css";
 import * as $ from "jquery";
 import axios from "axios";
+import BACKEND_URL from "../config";
+
 
 class OMReport extends Component {
 
@@ -40,7 +42,7 @@ class OMReport extends Component {
 
         // });
         // return result;
-        return axios.get("http://localhost:5505/api/overmind/report", {
+        return axios.get(BACKEND_URL + "/report", {
                 headers: {
                     Authorization: token
                 },
