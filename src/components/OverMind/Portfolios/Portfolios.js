@@ -3,7 +3,7 @@ import PlusPortfolio from './Portfolio/PlusPortfolio';
 import MinusPortfolio from './Portfolio/MinusPortfolio';
 import $ from 'jquery';
 import axios from 'axios';
-
+import BACKEND_URL from '../config';
 
 class Portfolios extends React.Component {
 
@@ -11,7 +11,7 @@ class Portfolios extends React.Component {
     super(props);
         this.state = {
             data:null,
-            // e_msg:null,
+            err_msg:null,
         };
     }
     // getInitialState () {
@@ -20,8 +20,10 @@ class Portfolios extends React.Component {
     //     });
     // }
 
-    componentWillMount() {
-        this.pfList().then((res) => this.setState({data:res.data.data}))
+    componentDidMount() {
+    // componentDidMount() {
+        this.pfList().then((res) => this.setState({data:res.data.data, err_msg:res.data.e_msg.message}))
+        // this.pfList().then(res => console.log(res.data.e_msg.message))
         // this.pfList().then(response => { console.log(response); } )
                      // .catch((res) => this.setState({e_msg:res.data}));
                      // .catch(response => { console.log(response); } );
@@ -32,7 +34,7 @@ class Portfolios extends React.Component {
     }
 
     pfList() {
-        let result = null;
+        // let result = null;
         let token = 'JWT' + sessionStorage.getItem('access_token');
 
         // $.ajax({
@@ -47,7 +49,8 @@ class Portfolios extends React.Component {
         //     result = res;
         // });
   		// return result;
-        return axios.get("http://localhost:5505/api/overmind/vc/pflist", {
+        // return axios.get("http://localhost:5505/api/overmind/vc/pflist", {
+        return axios.get(BACKEND_URL + "/vc/pflist", {
             headers: {
                 'Authorization': token
             }
@@ -83,7 +86,7 @@ class Portfolios extends React.Component {
 
 	render() {
         if (this.state.data) {
-            console.log("data",this.state.data);
+            console.log("im render 1");
             return (
                 <div className="portfolio">
                     <div>
@@ -105,10 +108,10 @@ class Portfolios extends React.Component {
             );
         }
         else {
-            console.log("error",this.state);
+            console.log("im render 2");
             return (
                 <div className="contents">
-                    <h2>{this.state.e_msg}</h2>
+                    <h2>{this.state.err_msg}</h2>
                 </div>
             )
         }
