@@ -39,7 +39,8 @@ import OMRegister from './OverMind/OMRegister/OMRegister';
 
 import Portfolios from './OverMind/Portfolios/Portfolios';
 import OMReport from './OverMind/OMReport/OMReport';
-import OMAccount from './OverMind/OMAccount/OMAccount';
+import OMVcHeader from './OverMind/OMHeader/OMVcHeader';
+import OMPcHeader from './OverMind/OMHeader/OMPcHeader';
 import OMAccountManage from './OverMind/OMAccountManage/OMAccountManage';
 
 export {
@@ -49,5 +50,5 @@ export {
     ServiceDetail, Step1, Step2, Step3, Step4, Report,
 
     /* OverMind */
-    OMMain, OMHeader, OMLogin, OMRegister, Portfolios, OMReport, OMAccount, OMAccountManage
+    OMMain, OMHeader, OMLogin, OMRegister, Portfolios, OMReport, OMVcHeader, OMPcHeader, OMAccountManage
 };

@@ -5,8 +5,9 @@ import {
     Step1, Step2, Step3, Step4, Report,
 
     /* OverMind */
-    OMHeader, Portfolios, OMMain, OMReport, OMAccount, OMAccountManage
+    OMHeader, Portfolios, OMMain, OMReport, OMVcHeader, OMAccountManage
 } from '../components';
+import OMPcHeader from "../components/OverMind/OMHeader/OMPcHeader";
 
 
 class FrontPage extends Component {
@@ -182,6 +183,7 @@ class OMVcPage extends Component {
         return (
             <div>
                 <OMHeader />
+                <OMVcHeader />
                 <Portfolios />
                 <Footer />
                 {this.props.children}
@@ -195,6 +197,7 @@ class OMPcPage extends Component {
         return (
             <div>
                 <OMHeader />
+                <OMPcHeader fid={this.props.params.fid}/>
                 <OMReport fid={this.props.params.fid}/>
                 <Footer />
                 {this.props.children}
@@ -209,7 +212,7 @@ class OMAccountPage extends Component {
         return (
             <div>
                 <OMHeader />
-                <OMAccount fid={this.props.params.fid}/>
+                <OMPcHeader fid={this.props.params.fid}/>
                 <Footer />
                 {this.props.children}
             </div>
@@ -222,6 +225,7 @@ class OMAccountManagePage extends Component {
         return (
             <div>
                 <OMHeader />
+                <OMPcHeader fid={this.props.params.fid}/>
                 <OMAccountManage fid={this.props.params.fid}/>
                 <Footer />
                 {this.props.children}

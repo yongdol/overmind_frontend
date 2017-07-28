@@ -109,16 +109,18 @@ class OMReport extends Component {
             // let data = '(' + this.state.data[0]['big_json'] + ')';
             // console.log(data)
             return (
-                <div className="contents">
-                    <div></div>
-                    <h1></h1>
-                    <h2 className="report-h2">{data.title}</h2>
-                    <div>
-                        {
-                            data.body.map((obj,i) => (this.printmap(obj, i)))
-                        }
-                    </div
-                    >
+                <div>
+                    <div className="report-contents">
+                        <div></div>
+                        <h1></h1>
+                        <h2 className="report-h2">{data.title}</h2>
+                        <div>
+                            {
+                                data.body.map((obj, i) => (this.printmap(obj, i)))
+                            }
+                        </div
+                        >
+                    </div>
                 </div>
             );
         }

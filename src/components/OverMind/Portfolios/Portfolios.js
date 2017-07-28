@@ -58,22 +58,21 @@ class Portfolios extends React.Component {
         if (this.state.data) {
             return (
                 <div className="portfolio">
-                    <div>
-                        {
-                            this.state.data.map(
-                                (item) => {
-                                    return this.renderPortfolios(
-                                        item.firm_name,
-                                        item.status,
-                                        item.runway.toString().slice(0, 4),
-                                        this.numberWithCommas(item.avg_burn_mon),
-                                        this.numberWithCommas(item.cash_remaining),
-                                        item.firm_id)
-                                }
-                            )
-                        }
-                    </div>
+                    {
+                        this.state.data.map(
+                            (item) => {
+                                return this.renderPortfolios(
+                                    item.firm_name,
+                                    item.status,
+                                    item.runway.toString().slice(0, 4),
+                                    this.numberWithCommas(item.avg_burn_mon),
+                                    this.numberWithCommas(item.cash_remaining),
+                                    item.firm_id)
+                            }
+                        )
+                    }
                 </div>
+
             );
         }
         else {

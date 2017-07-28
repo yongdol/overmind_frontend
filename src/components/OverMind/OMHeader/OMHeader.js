@@ -13,12 +13,12 @@ class OMHeader extends Component {
                 <div className="headerWrap">
                     <div className="leftheader beforelogin">
                         <div className="iconHamburger" href="#" onClick="">
-                            <Link to="./sidebar">
+                            <Link>
                                 <img src="/img/icon_hamburger.png" width="30" height="30" alt="drawer" title="메뉴"/>
                             </Link>
                         </div>
                         <div className="iconSearch" href="#" onClick="">
-                            <Link to="./search">
+                            <Link>
                                 <img src="/img/icon_search.png" width="30" height="30" alt="search" title="검색"/>
                             </Link>
                         </div>
@@ -48,10 +48,10 @@ class OMHeader extends Component {
                 <div className="headerWrap">
                     <div className="leftheader">
                         <div className="iconHamburger" href="#">
-                            <Link to="./sidebar"><img src="/img/icon_hamburger.png" width="30" height="30" alt="drawer" title="메뉴"/></Link>
+                            <Link><img src="/img/icon_hamburger.png" width="30" height="30" alt="drawer" title="메뉴"/></Link>
                         </div>
                         <div className="iconSearch" href="#">
-                            <Link to="./search"><img src="/img/icon_search.png" width="30" height="30" alt="search" title="검색"/></Link>
+                            <Link><img src="/img/icon_search.png" width="30" height="30" alt="search" title="검색"/></Link>
                         </div>
                     </div>
                     <div className="logo">
@@ -63,7 +63,7 @@ class OMHeader extends Component {
                     </div>
                     <div className="rightheader">
                         <div className="iconMypage" href="#">
-                            <Link to="/mypage">
+                            <Link>
                                 <img src="/img/icon_mypage.png" width="30" height="30" alt="mypage" title="마이페이지"/>
                             </Link>
                         </div>
@@ -84,10 +84,10 @@ class OMHeader extends Component {
                 <div className="headerWrap">
                     <div className="leftheader">
                         <div className="iconHamburger" href="#">
-                            <Link to="./sidebar"><img src="/img/icon_hamburger.png" width="30" height="30" alt="drawer" title="메뉴"/></Link>
+                            <Link><img src="/img/icon_hamburger.png" width="30" height="30" alt="drawer" title="메뉴"/></Link>
                         </div>
                         <div className="iconSearch" href="#">
-                            <Link to="./search"><img src="/img/icon_search.png" width="30" height="30" alt="search" title="검색"/></Link>
+                            <Link><img src="/img/icon_search.png" width="30" height="30" alt="search" title="검색"/></Link>
                         </div>
                     </div>
                     <div className="logo">
@@ -99,7 +99,7 @@ class OMHeader extends Component {
                     </div>
                     <div className="rightheader">
                         <div className="iconMypage" href="#">
-                            <Link to="/mypage">
+                            <Link>
                                 <img src="/img/icon_mypage.png" width="30" height="30" alt="mypage" title="마이페이지"/>
                             </Link>
                         </div>
@@ -120,8 +120,5 @@ class OMHeader extends Component {
 
     }
 }
-
-
-
 
 export default OMHeader;
